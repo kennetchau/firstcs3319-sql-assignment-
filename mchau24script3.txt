@@ -1,0 +1,29 @@
+USE mchau24assign2db
+-- Query 1
+SELECT description FROM Products;
+-- Query 2
+SELECT DISTINCT City FROM Customers;
+-- Query 3
+SELECT * FROM Agents ORDER BY City DESC;
+-- Query4
+SELECT firstname, lastname FROM Customers WHERE City = 'Springfield';
+-- Query 5
+SELECT lastname FROM Customers WHERE CustomersID in (SELECT CustomerID FROM Agentcustomerinfo WHERE AgentID = ( SELECT AgentID FROM Agents WHERE firstname = 'Regis'));
+-- Query 6
+SELECT description, lastname, noofpurchase FROM Products, Customers, PurchasingInfo WHERE Customers.CustomersID = PurchasingInfo.CustomersID AND Products.ProductID=PurchasingInfo.ProductID;
+-- Query 7
+SELECT sum(noofpurchase) AS "Homer's Total Purchase" FROM PurchasingInfo WHERE CustomersID = (SELECT CustomersID FROM Customers WHERE firstname = 'Homer');
+-- Query 8
+SELECT firstname, lastname, sum(noofpurchase) FROM Customers, PurchasingInfo WHERE Customers.CustomersID = PurchasingInfo.CustomersID GROUP BY PurchasingInfo.CustomersID;
+-- Query 9
+SELECT description, noofiteminhand FROM Products WHERE ProductID NOT IN ( SELECT ProductID FROM PurchasingInfo);
+-- Query 10
+SELECT description, noofiteminhand FROM Products WHERE ProductID NOT IN ( SELECT ProductID FROM PurchasingInfo WHERE CustomersID = ( SELECT CustomersID FROM Customers WHERE firstname = 'Fred' AND lastname = 'Flintstone'));
+-- Query 11
+SELECT Agents.firstname as 'Agents firstname', Agents.lastname as 'Agents lastname', Customers.firstname as 'Customers firstname', Customers.lastname as 'Customers lastname' FROM Agents, Customers WHERE Agents.City = Customers.City;
+-- Query 12
+SELECT sum(noofpurchase) as 'Total number of Knee Pads Purchase' FROM PurchasingInfo WHERE ProductID = (SELECT ProductID FROM Products WHERE description = 'Knee Pads');
+-- Query 13
+SELECT description FROM Products WHERE ProductID IN ( SELECT ProductID FROM PurchasingInfo GROUP BY ProductID HAVING COUNT(*)>=3);
+-- Query 14
+SELECT firstname, lastname FROM Agents WHERE AgentID IN ( SELECT AgentID FROM Agentcustomerinfo WHERE CustomerID IN (SELECT CustomersID FROM PurchasingInfo WHERE ProductID = (SELECT ProductID FROM Products WHERE description = "Knee pads")));
