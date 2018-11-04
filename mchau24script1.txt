@@ -17,8 +17,8 @@ SHOW TABLES;
 CREATE TABLE Products(ProductID VARCHAR(2), description VARCHAR(20), cost FLOAT NOT NULL, noofiteminhand INT NOT NULL, PRIMARY KEY (Productid));
 CREATE TABLE Agents(AgentID VARCHAR(2), firstname VARCHAR(30), lastname VARCHAR(30), City VARCHAR(15), commission INT NOT NULL, PRIMARY KEY (AgentID));
 CREATE TABLE Customers(CustomersID VARCHAR(2), firstname VARCHAR(30), lastname VARCHAR(30), city VARCHAR(15), phone INT NOT NULL, PRIMARY KEY (CustomersID));
-CREATE TABLE PurchasingInfo(CustomersID VARCHAR(2), ProductID VARCHAR(2), noofpurchase INT NOT NULL);
-CREATE TABLE Agentcustomerinfo(AgentID VARCHAR(2), CustomerID VARCHAR(2), PRIMARY KEY (CustomerID));
+CREATE TABLE PurchasingInfo(CustomersID VARCHAR(2), ProductID VARCHAR(2), noofpurchase INT NOT NULL, FOREIGN KEY (CustomersID) REFERENCES Customers(CustomersID));
+CREATE TABLE Agentcustomerinfo(AgentID VARCHAR(2), CustomerID VARCHAR(2), PRIMARY KEY (CustomerID),FOREIGN KEY (AgentID) REFERENCES Agents(AgentID));
 
 -- show all tables
 SHOW TABLES;

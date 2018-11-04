@@ -34,11 +34,11 @@ CREATE TABLE Customers(CustomersID VARCHAR(2), firstname VARCHAR(30), lastname V
 --------------
 
 --------------
-CREATE TABLE PurchasingInfo(CustomersID VARCHAR(2), ProductID VARCHAR(2), noofpurchase INT NOT NULL)
+CREATE TABLE PurchasingInfo(CustomersID VARCHAR(2), ProductID VARCHAR(2), noofpurchase INT NOT NULL, FOREIGN KEY (CustomersID) REFERENCES Customers(CustomersID))
 --------------
 
 --------------
-CREATE TABLE Agentcustomerinfo(AgentID VARCHAR(2), CustomerID VARCHAR(2), PRIMARY KEY (CustomerID))
+CREATE TABLE Agentcustomerinfo(AgentID VARCHAR(2), CustomerID VARCHAR(2), PRIMARY KEY (CustomerID),FOREIGN KEY (AgentID) REFERENCES Agents(AgentID))
 --------------
 
 --------------

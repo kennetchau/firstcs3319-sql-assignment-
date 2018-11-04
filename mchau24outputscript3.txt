@@ -53,6 +53,9 @@ SELECT description, lastname, noofpurchase FROM Products, Customers, PurchasingI
 --------------
 
 description	lastname	noofpurchase
+Elbow pads	Griffens	19
+Elbow pads	Flintstone	2
+Knee Pads	Flintstone	2
 Helmet	Simpson	20
 Socks	Simpson	14
 Elbow pads	Simpson	10
@@ -60,9 +63,6 @@ Helmet	Bob	5
 Socks	Bob	5
 Knee Pads	Bob	5
 Elbow pads	Bob	5
-Elbow pads	Flintstone	2
-Knee Pads	Flintstone	2
-Elbow pads	Griffens	19
 --------------
 SELECT sum(noofpurchase) AS "Homer's Total Purchase" FROM PurchasingInfo WHERE CustomersID = (SELECT CustomersID FROM Customers WHERE firstname = 'Homer')
 --------------

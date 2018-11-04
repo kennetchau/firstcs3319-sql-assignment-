@@ -1,0 +1,117 @@
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1451 (23000) at line 26: Cannot delete or update a parent row: a foreign key constraint fails (`mchau24assign2db`.`Agentcustomerinfo`, CONSTRAINT `Agentcustomerinfo_ibfk_1` FOREIGN KEY (`AgentID`) REFERENCES `Agents` (`AgentID`))
+--------------
+SELECT * FROM Products
+--------------
+
+ProductID	description	cost	noofiteminhand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75	89
+99	Helmet	29	30
+A2	PS4	379.76	300
+I2	WH-H800/B	298	20
+--------------
+SELECT * FROM Customers
+--------------
+
+CustomersID	firstname	lastname	city	phone
+10	Barney	Rubble	Boston	7771234
+12	Monty	Burns	Springfield	7890000
+13	Wonder	Woman	Krypto	8881234
+14	Peter	Griffens	Providence	9874567
+15	Fred	Flintstone	Boston	7772345
+21	Homer	Simpson	Springfield	6868956
+31	Sideshow	Bob	Springfield	6865555
+--------------
+SELECT * FROM Agents
+--------------
+
+AgentID	firstname	lastname	City	commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+88	Kenneth	Chau	London	99
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM PurchasingInfo
+--------------
+
+CustomersID	ProductID	noofpurchase
+21	99	20
+21	12	14
+21	66	10
+31	99	5
+31	12	5
+31	78	5
+31	66	5
+15	66	2
+15	78	2
+14	66	19
+--------------
+SELECT * FROM Agentcustomerinfo
+--------------
+
+AgentID	CustomerID
+11	10
+11	15
+12	31
+33	13
+99	12
+99	14
+99	21
+--------------
+CREATE VIEW customeranddesandprice AS SELECT description, cost, firstname, lastname, noofpurchase, noofpurchase*cost as 'TotalCost' FROM Products, Customers, PurchasingInfo WHERE Customers.CustomersID = PurchasingInfo.CustomersID AND Products.ProductID=PurchasingInfo.ProductID
+--------------
+
+--------------
+SELECT * FROM customeranddesandprice
+--------------
+
+description	cost	firstname	lastname	noofpurchase	TotalCost
+Elbow pads	14.25	Peter	Griffens	19	270.75
+Elbow pads	14.25	Fred	Flintstone	2	28.5
+Knee Pads	12.15	Fred	Flintstone	2	24.299999237060547
+Helmet	29	Homer	Simpson	20	580
+Socks	2	Homer	Simpson	14	28
+Elbow pads	14.25	Homer	Simpson	10	142.5
+Helmet	29	Sideshow	Bob	5	145
+Socks	2	Sideshow	Bob	5	10
+Knee Pads	12.15	Sideshow	Bob	5	60.74999809265137
+Elbow pads	14.25	Sideshow	Bob	5	71.25
+--------------
+SELECT * FROM customeranddesandprice WHERE TotalCost>=100
+--------------
+
+description	cost	firstname	lastname	noofpurchase	TotalCost
+Elbow pads	14.25	Peter	Griffens	19	270.75
+Helmet	29	Homer	Simpson	20	580
+Elbow pads	14.25	Homer	Simpson	10	142.5
+Helmet	29	Sideshow	Bob	5	145
+--------------
+DELETE FROM Products WHERE description = "PS4"
+--------------
+
+--------------
+DELETE FROM Products WHERE description = "WH-H800/B"
+--------------
+
+--------------
+SELECT * FROM Products
+--------------
+
+ProductID	description	cost	noofiteminhand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75	89
+99	Helmet	29	30
+--------------
+DELETE FROM Agents WHERE City = 'Springfield'
+--------------
+

@@ -1,0 +1,28 @@
+-- use database
+USE mchau24assign2db
+-- show the table again
+SELECT * FROM Products;
+SELECT * FROM Customers;
+SELECT * FROM Agents;
+SELECT * FROM PurchasingInfo;
+SELECT * FROM Agentcustomerinfo;
+-- create view 
+CREATE VIEW customeranddesandprice AS SELECT description, cost, firstname, lastname, noofpurchase, noofpurchase*cost as 'TotalCost' FROM Products, Customers, PurchasingInfo WHERE Customers.CustomersID = PurchasingInfo.CustomersID AND Products.ProductID=PurchasingInfo.ProductID;
+
+-- show the view
+SELECT * FROM customeranddesandprice;
+
+-- show cost > 100
+SELECT * FROM customeranddesandprice WHERE TotalCost>=100;
+
+-- delete record
+DELETE FROM Products WHERE description = "PS4";
+DELETE FROM Products WHERE description = "WH-H800/B";
+
+-- show record been deleted
+SELECT * FROM Products; 
+
+-- try to delete agents
+DELETE FROM Agents WHERE City = 'Springfield';
+
+-- the row above does not work cause there is customers under the agents and by foreign key constraint it could not be deleted

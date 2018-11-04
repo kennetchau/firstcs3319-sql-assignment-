@@ -207,12 +207,12 @@ SELECT * FROM Agentcustomerinfo
 
 AgentID	CustomerID
 11	10
-99	12
-33	13
-99	14
 11	15
-99	21
 12	31
+33	13
+99	12
+99	14
+99	21
 --------------
 UPDATE Customers SET firstname = 'Wonder', lastname = 'Woman' WHERE firstname = 'Super' AND lastname = 'Man'
 --------------
@@ -283,9 +283,9 @@ SELECT * FROM Agentcustomerinfo
 
 AgentID	CustomerID
 11	10
-99	12
-33	13
-99	14
 11	15
-99	21
 12	31
+33	13
+99	12
+99	14
+99	21
