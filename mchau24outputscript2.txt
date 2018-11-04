@@ -1,0 +1,291 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA LOCAL INFILE 'loaddatafall2018.txt' INTO TABLE Products FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
+--------------
+
+--------------
+SELECT * FROM Products
+--------------
+
+ProductID	description	cost	noofiteminhand
+11	Bike	150	200
+12	Socks	2	100
+78	Knee Pads	12.15	70
+88	Roller Blades	75	89
+99	Helmet	29	30
+--------------
+INSERT INTO Products (ProductID, description, cost, noofiteminhand) VALUES ("66", "Elbow pads", 14.25, 120)
+--------------
+
+--------------
+INSERT INTO Products (ProductID, description, cost, noofiteminhand) VALUES ("A2", "PS4", 379.76, 300)
+--------------
+
+--------------
+INSERT INTO Products (ProductID, description, cost, noofiteminhand) VALUES ("I2", "WH-H800/B", 298.00, 20)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("99", "Hugh", "Grant", "Springfield", 16)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("22", "Courtney", "Cox", "New York", 25)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("66", "Rosie", "ODonnell", "Ottawa", 100)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("33", "David", "Letterman", "Bedrock", 100)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("11", "Regis", "Philbin", "Boston", 33)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("12", "Rosie", "Cox", "Ottawa", 50)
+--------------
+
+--------------
+INSERT INTO Agents (AgentID, firstname, lastname, City, commission) VALUES ("88", "Kenneth", "Chau", "London", 99)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("21", "Homer", "Simpson", "Springfield", 6868956)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("31", "Sideshow", "Bob", "Springfield", 6865555)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("12", "Monty", "Burns", "Springfield", 7890000)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("15", "Fred", "Flintstone", "Bedrock", 7772345)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("13", "Super", "Man", "Krypto", 8881234)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("10", "Barney", "Rubble", "Bedrock", 7771234)
+--------------
+
+--------------
+INSERT INTO Customers (CustomersID, firstname, lastname, City, phone) VALUES ("14", "Peter", "Griffens", "Providence", 9874567)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("21", "99", 20)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("21", "12", 14)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("21", "66", 10)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("31", "99", 1)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("31", "12", 2)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("31", "78", 4)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("31", "66", 2)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("15", "66", 2)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("15", "78", 2)
+--------------
+
+--------------
+INSERT INTO PurchasingInfo (CustomersID, ProductID, noofpurchase) VALUES ("14", "66", 19)
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("99", "21")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("99", "12")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("99", "14")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("33", "13")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("11", "10")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("11", "15")
+--------------
+
+--------------
+INSERT INTO Agentcustomerinfo (AgentID, CustomerID) VALUES ("12", "31")
+--------------
+
+--------------
+SELECT * FROM Products
+--------------
+
+ProductID	description	cost	noofiteminhand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75	89
+99	Helmet	29	30
+A2	PS4	379.76	300
+I2	WH-H800/B	298	20
+--------------
+SELECT * FROM Customers
+--------------
+
+CustomersID	firstname	lastname	city	phone
+10	Barney	Rubble	Bedrock	7771234
+12	Monty	Burns	Springfield	7890000
+13	Super	Man	Krypto	8881234
+14	Peter	Griffens	Providence	9874567
+15	Fred	Flintstone	Bedrock	7772345
+21	Homer	Simpson	Springfield	6868956
+31	Sideshow	Bob	Springfield	6865555
+--------------
+SELECT * FROM Agents
+--------------
+
+AgentID	firstname	lastname	City	commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+88	Kenneth	Chau	London	99
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM PurchasingInfo
+--------------
+
+CustomersID	ProductID	noofpurchase
+21	99	20
+21	12	14
+21	66	10
+31	99	1
+31	12	2
+31	78	4
+31	66	2
+15	66	2
+15	78	2
+14	66	19
+--------------
+SELECT * FROM Agentcustomerinfo
+--------------
+
+AgentID	CustomerID
+11	10
+99	12
+33	13
+99	14
+11	15
+99	21
+12	31
+--------------
+UPDATE Customers SET firstname = 'Wonder', lastname = 'Woman' WHERE firstname = 'Super' AND lastname = 'Man'
+--------------
+
+--------------
+UPDATE PurchasingInfo SET noofpurchase = 5 WHERE CustomersID = ( SELECT CustomersID FROM Customers WHERE firstname = 'Sideshow' AND lastname = 'Bob')
+--------------
+
+--------------
+UPDATE Customers SET City = 'Boston' WHERE CustomersID IN ( SELECT CustomerID FROM Agentcustomerinfo WHERE AgentID = ( SELECT AgentID FROM Agents WHERE firstname = 'Regis'))
+--------------
+
+--------------
+SELECT * FROM Products
+--------------
+
+ProductID	description	cost	noofiteminhand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75	89
+99	Helmet	29	30
+A2	PS4	379.76	300
+I2	WH-H800/B	298	20
+--------------
+SELECT * FROM Customers
+--------------
+
+CustomersID	firstname	lastname	city	phone
+10	Barney	Rubble	Boston	7771234
+12	Monty	Burns	Springfield	7890000
+13	Wonder	Woman	Krypto	8881234
+14	Peter	Griffens	Providence	9874567
+15	Fred	Flintstone	Boston	7772345
+21	Homer	Simpson	Springfield	6868956
+31	Sideshow	Bob	Springfield	6865555
+--------------
+SELECT * FROM Agents
+--------------
+
+AgentID	firstname	lastname	City	commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+88	Kenneth	Chau	London	99
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM PurchasingInfo
+--------------
+
+CustomersID	ProductID	noofpurchase
+21	99	20
+21	12	14
+21	66	10
+31	99	5
+31	12	5
+31	78	5
+31	66	5
+15	66	2
+15	78	2
+14	66	19
+--------------
+SELECT * FROM Agentcustomerinfo
+--------------
+
+AgentID	CustomerID
+11	10
+99	12
+33	13
+99	14
+11	15
+99	21
+12	31

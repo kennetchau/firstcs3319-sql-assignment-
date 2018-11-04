@@ -1,0 +1,24 @@
+-- show database
+SHOW DATABASES;
+
+-- drop database if it exist
+DROP DATABASE IF EXISTS mchau24assign2db;
+
+-- create database
+CREATE DATABASE mchau24assign2db;
+
+-- use the database 
+USE mchau24assign2db;
+
+-- show tables 
+SHOW TABLES;
+
+-- create the five table we would use later
+CREATE TABLE Products(ProductID VARCHAR(2), description VARCHAR(20), cost FLOAT NOT NULL, noofiteminhand INT NOT NULL, PRIMARY KEY (Productid));
+CREATE TABLE Agents(AgentID VARCHAR(2), firstname VARCHAR(30), lastname VARCHAR(30), City VARCHAR(15), commission INT NOT NULL, PRIMARY KEY (AgentID));
+CREATE TABLE Customers(CustomersID VARCHAR(2), firstname VARCHAR(30), lastname VARCHAR(30), city VARCHAR(15), phone INT NOT NULL, PRIMARY KEY (CustomersID));
+CREATE TABLE PurchasingInfo(CustomersID VARCHAR(2), ProductID VARCHAR(2), noofpurchase INT NOT NULL);
+CREATE TABLE Agentcustomerinfo(AgentID VARCHAR(2), CustomerID VARCHAR(2), PRIMARY KEY (CustomerID));
+
+-- show all tables
+SHOW TABLES;
